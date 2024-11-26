@@ -1,14 +1,21 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import s from './Header.module.css';
 import clsx from 'clsx';
 
 const Header = () => {
+  const location = useLocation();
+
   const buildLinkClass = ({ isActive }) => {
     return clsx(s.link, isActive && s.active);
   };
 
+  const backgroundColor = clsx(
+    s.headerWhite,
+    location.pathname === '/catalog' && s.headerGray
+  );
+
   return (
-    <div className={s.header}>
+    <div className={backgroundColor}>
       <Link to="/" className={s.logo}>
         Travel<span className={s.logoSpan}>Trucks</span>
       </Link>

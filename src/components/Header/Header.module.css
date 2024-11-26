@@ -1,4 +1,4 @@
-.header {
+.headerWhite {
   background-color: var(--white);
   margin: 0;
   position: fixed;
@@ -11,6 +11,10 @@
   align-items: center;
   padding-bottom: 24px;
   padding-top: 24px;
+}
+
+.headerGray {
+  background-color: var(--inputs);
 }
 
 .logo {
