@@ -62,6 +62,22 @@ const Features = () => {
       formInfo = 'Form not available';
   }
 
+  const additionalFeatures = [
+    { condition: camper.kitchen, label: 'Kitchen', icon: 'icon-cup-hot' },
+    { condition: camper.AC, label: 'AC', icon: 'icon-wind' },
+    { condition: camper.bathroom, label: 'Bathroom', icon: 'icon-shower' },
+    { condition: camper.TV, label: 'TV', icon: 'icon-tv' },
+    { condition: camper.radio, label: 'Radio', icon: 'icon-radio' },
+    {
+      condition: camper.refrigerator,
+      label: 'Refrigerator',
+      icon: 'icon-fridge',
+    },
+    { condition: camper.microwave, label: 'Microwave', icon: 'icon-microwave' },
+    { condition: camper.gas, label: 'Gas', icon: 'icon-gas-stove' },
+    { condition: camper.water, label: 'Water', icon: 'icon-drop' },
+  ];
+
   const formatData = (value) => {
     if (!value) return '';
     const newValue = value.replace('m', ' m');
@@ -85,21 +101,16 @@ const Features = () => {
           </svg>
           {engineInfo}
         </li>
-        {camper.kitchen && (
-          <li className={s.item}>
-            <svg width={20} height={20}>
-              <use href={`${sprite}#icon-cup-hot`}></use>
-            </svg>
-            Kitchen
-          </li>
-        )}
-        {camper.AC && (
-          <li className={s.item}>
-            <svg width={20} height={20}>
-              <use href={`${sprite}#icon-wind`}></use>
-            </svg>
-            AC
-          </li>
+        {additionalFeatures.map(
+          (feature, index) =>
+            feature.condition && (
+              <li key={index} className={s.item}>
+                <svg width={20} height={20}>
+                  <use href={`${sprite}#${feature.icon}`}></use>
+                </svg>
+                {feature.label}
+              </li>
+            )
         )}
       </ul>
       <p className={s.detailsText}>Vehicle Details</p>
