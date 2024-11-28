@@ -1,5 +1,6 @@
 import s from './Card.module.css';
 import sprite from '../../assets/icons.svg';
+import { Link } from 'react-router-dom';
 
 const Card = ({ camper }) => {
   let transmissionInfo;
@@ -77,11 +78,6 @@ const Card = ({ camper }) => {
         <p className={s.descrText}>{camper.description}</p>
 
         <ul className={s.list}>
-          {/* {camper.gallery.map((image, index) => (
-          <li key={index}>
-            <img src={image.original} alt={`${camper.name} ${index + 1}`} />
-          </li>
-        ))} */}
           <li className={s.item}>
             <svg width={20} height={20}>
               <use href={`${sprite}#icon-diagram`}></use>
@@ -111,8 +107,9 @@ const Card = ({ camper }) => {
             </li>
           )}
         </ul>
-
-        <button>Show More</button>
+        <Link to={`/catalog/${camper.id}`}>
+          <button>Show More</button>
+        </Link>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { fetchCamperById, fetchCampers } from './operations.js';
 
 const initialState = {
   items: [],
-  selectedCamper: null,
+  selectedCamper: {},
   isLoading: false,
   error: null,
 };

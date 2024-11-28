@@ -1,6 +1,6 @@
 .container {
   padding: 120px 64px 52px 64px;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
   gap: 64px;
 }

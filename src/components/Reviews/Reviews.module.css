@@ -1,0 +1,33 @@
+.container {
+  width: 631px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+}
+
+.itemWrap {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.itemSpan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+  background-color: var(--badges);
+  color: var(--button);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.itemComment {
+  color: var(--text);
+  line-height: 24px;
+}
