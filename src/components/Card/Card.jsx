@@ -60,13 +60,16 @@ const Card = ({ camper }) => {
         </div>
 
         <div className={s.wrapDetails}>
-          <p className={s.rating}>
-            <svg width={16} height={16}>
-              <use href={`${sprite}#icon-rating`}></use>
-            </svg>
-            {camper.rating}
-            <span>({camper.reviews.length} Reviews)</span>
-          </p>
+          <Link to={`/catalog/${camper.id}/reviews`}>
+            <p className={s.rating}>
+              <svg width={16} height={16}>
+                <use href={`${sprite}#icon-rating`}></use>
+              </svg>
+              {camper.rating}
+              <span>({camper.reviews.length} Reviews)</span>
+            </p>
+          </Link>
+
           <p className={s.location}>
             <svg width={16} height={16}>
               <use href={`${sprite}#icon-map`}></use>
@@ -107,7 +110,7 @@ const Card = ({ camper }) => {
             </li>
           )}
         </ul>
-        <Link to={`/catalog/${camper.id}`}>
+        <Link to={`/catalog/${camper.id}/features`}>
           <button>Show More</button>
         </Link>
       </div>

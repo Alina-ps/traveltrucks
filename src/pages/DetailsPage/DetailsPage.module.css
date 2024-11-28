@@ -8,6 +8,7 @@
 
 .link {
   position: relative;
+  color: var(--main);
 }
 
 .active::after {

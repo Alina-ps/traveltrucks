@@ -8,14 +8,29 @@
 
 .wrapDetails {
   display: flex;
+  align-items: center;
   gap: 16px;
   height: 24px;
   margin-bottom: 16px;
   color: var(--main);
 }
 
+.rating {
+  color: var(--main);
+  cursor: pointer;
+}
+
+.rating:focus,
+.rating:hover,
+.rating:active {
+  color: var(--main);
+  text-decoration: underline;
+  outline: none;
+}
+
 .price {
   margin-bottom: 28px;
+  font-weight: 600;
 }
 
 .list {

@@ -68,6 +68,8 @@ const Features = () => {
     return newValue;
   };
 
+  if (!camper.tank) return '';
+
   return (
     <div className={s.container}>
       <ul className={s.list}>

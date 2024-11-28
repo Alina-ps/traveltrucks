@@ -29,6 +29,7 @@
 
 .wrapDetails {
   display: flex;
+  align-items: center;
   gap: 16px;
   height: 24px;
   margin-bottom: 24px;
@@ -40,6 +41,16 @@
   justify-content: center;
   align-items: center;
   gap: 4px;
+  color: var(--main);
+  cursor: pointer;
+}
+
+.rating:focus,
+.rating:hover,
+.rating:active {
+  color: var(--main);
+  text-decoration: underline;
+  outline: none;
 }
 
 .location {

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import s from './CamperDetails.module.css';
 import sprite from '../../assets/icons.svg';
 import { selectCamperById } from '../../redux/campers/selectors.js';
@@ -33,13 +33,16 @@ const CamperDetails = () => {
       <h2 className={s.title}>{camper.name}</h2>
 
       <div className={s.wrapDetails}>
-        <p className={s.rating}>
-          <svg width={16} height={16}>
-            <use href={`${sprite}#icon-rating`}></use>
-          </svg>
-          {camper.rating}
-          <span>({camper.reviews.length} Reviews)</span>
-        </p>
+        <Link to={`/catalog/${camper.id}/reviews`}>
+          <p className={s.rating}>
+            <svg width={16} height={16}>
+              <use href={`${sprite}#icon-rating`}></use>
+            </svg>
+            {camper.rating}
+            <span>({camper.reviews.length} Reviews)</span>
+          </p>
+        </Link>
+
         <p className={s.location}>
           <svg width={16} height={16}>
             <use href={`${sprite}#icon-map`}></use>
