@@ -3,6 +3,9 @@ import { fetchCamperById, fetchCampers } from './operations.js';
 
 const initialState = {
   items: [],
+  total: 23,
+  page: 1,
+  limit: 4,
   selectedCamper: {},
   isLoading: false,
   error: null,
@@ -11,10 +14,19 @@ const initialState = {
 const slice = createSlice({
   name: 'campers',
   initialState,
+  reducers: {
+    setPage: (state, action) => {
+      state.page = action.payload;
+    },
+    setLimit: (state, action) => {
+      state.limit = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampers.fulfilled, (state, action) => {
-        state.items = action.payload;
+        state.items = action.payload.items;
+        state.total = action.payload.total;
       })
       .addCase(fetchCamperById.fulfilled, (state, action) => {
         state.selectedCamper = action.payload;
@@ -43,3 +55,4 @@ const slice = createSlice({
 });
 
 export const campersReducer = slice.reducer;
+export const { setPage, setLimit } = slice.actions;
