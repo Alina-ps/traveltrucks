@@ -29,9 +29,6 @@ const DropdownList = () => {
 
   return (
     <div className={s.dropdownContainer} onClick={toggleDropdown}>
-      <svg className={s.inputSvg} width={20} height={20}>
-        <use href={`${sprite}#icon-map`}></use>
-      </svg>
       <input
         className={s.input}
         type="text"
@@ -40,6 +37,14 @@ const DropdownList = () => {
         readOnly
         onClick={toggleDropdown}
       />
+      <svg
+        className={s.inputSvg}
+        width={20}
+        height={20}
+        style={{ fill: selectedValue ? 'black' : 'var(--gray)' }}
+      >
+        <use href={`${sprite}#icon-map`}></use>
+      </svg>
       {isOpen && (
         <ul className={s.dropdownList}>
           {options.map((option) => (
