@@ -15,7 +15,7 @@ const Card = ({ camper }) => {
       transmissionInfo = 'Hybrid';
       break;
     default:
-      transmissionInfo = 'Transmission not available';
+      break;
   }
 
   let engineInfo;
@@ -30,7 +30,28 @@ const Card = ({ camper }) => {
       engineInfo = 'Hybrid';
       break;
     default:
-      engineInfo = 'Engine not available';
+      break;
+  }
+
+  const formIcons = {
+    fullyIntegrated: `${sprite}#icon-grid`,
+    alcove: `${sprite}#icon-grid-3x3`,
+    panelTruck: `${sprite}#icon-grid-1x2`,
+  };
+
+  let formInfo;
+  switch (camper.form) {
+    case 'fullyIntegrated':
+      formInfo = 'Fully Integrated';
+      break;
+    case 'alcove':
+      formInfo = 'Alcove';
+      break;
+    case 'panelTruck':
+      formInfo = 'Panel Truck';
+      break;
+    default:
+      break;
   }
 
   const formattedPrice = (price) => `€ ${price.toFixed(2)}`;
@@ -93,6 +114,12 @@ const Card = ({ camper }) => {
             </svg>
             {engineInfo}
           </li>
+          <li className={s.item}>
+            <svg width={20} height={20}>
+              <use href={formIcons[camper.form]}></use>
+            </svg>
+            {formInfo}
+          </li>
           {camper.kitchen && (
             <li className={s.item}>
               <svg width={20} height={20}>
@@ -107,6 +134,22 @@ const Card = ({ camper }) => {
                 <use href={`${sprite}#icon-wind`}></use>
               </svg>
               AC
+            </li>
+          )}
+          {camper.TV && (
+            <li className={s.item}>
+              <svg width={20} height={20}>
+                <use href={`${sprite}#icon-tv`}></use>
+              </svg>
+              TV
+            </li>
+          )}
+          {camper.bathroom && (
+            <li className={s.item}>
+              <svg width={20} height={20}>
+                <use href={`${sprite}#icon-shower`}></use>
+              </svg>
+              Bathroom
             </li>
           )}
         </ul>

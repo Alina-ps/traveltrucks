@@ -14,39 +14,6 @@
   margin-bottom: 8px;
 }
 
-.inputContainer {
-  position: relative;
-}
-
-.inputSvg {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  fill: var(--gray);
-}
-
-.input {
-  width: 360px;
-  height: 56px;
-  background-color: var(--inputs);
-  color: var(--main);
-  border: transparent;
-  border-radius: 12px;
-  padding: 16px 0;
-  padding-left: 48px;
-}
-
-.input:focus {
-  outline: none;
-}
-
-.input:focus + .inputSvg {
-  fill: var(--main);
-}
-
 .filterText {
   margin-bottom: 32px;
   color: var(--text);
@@ -89,6 +56,10 @@
 
 .item:hover,
 .item:focus {
+  border-color: var(--button-hover);
+}
+
+.active {
   border-color: var(--button-hover);
 }
 
