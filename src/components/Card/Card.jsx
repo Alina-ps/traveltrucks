@@ -1,6 +1,5 @@
 import s from './Card.module.css';
 import sprite from '../../assets/icons.svg';
-import { Link } from 'react-router-dom';
 
 const Card = ({ camper }) => {
   let transmissionInfo;
@@ -81,15 +80,18 @@ const Card = ({ camper }) => {
         </div>
 
         <div className={s.wrapDetails}>
-          <Link to={`/catalog/${camper.id}/reviews`}>
-            <p className={s.rating}>
-              <svg width={16} height={16}>
-                <use href={`${sprite}#icon-rating-yellow`}></use>
-              </svg>
-              {camper.rating}
-              <span>({camper.reviews.length} Reviews)</span>
-            </p>
-          </Link>
+          <span
+            className={s.rating}
+            onClick={() =>
+              window.open(`/catalog/${camper.id}/reviews`, '_blank')
+            }
+          >
+            <svg width={16} height={16}>
+              <use href={`${sprite}#icon-rating-yellow`}></use>
+            </svg>
+            {camper.rating}
+            <span>({camper.reviews.length} Reviews)</span>
+          </span>
 
           <p className={s.location}>
             <svg width={16} height={16}>
@@ -153,9 +155,14 @@ const Card = ({ camper }) => {
             </li>
           )}
         </ul>
-        <Link to={`/catalog/${camper.id}/features`}>
-          <button>Show More</button>
-        </Link>
+
+        <button
+          onClick={() =>
+            window.open(`/catalog/${camper.id}/features`, '_blank')
+          }
+        >
+          Show More
+        </button>
       </div>
     </div>
   );
