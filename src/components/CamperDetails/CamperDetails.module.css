@@ -23,14 +23,13 @@
 .rating {
   color: var(--main);
   cursor: pointer;
+  transition: text-decoration 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .rating:focus,
 .rating:hover,
 .rating:active {
-  color: var(--main);
   text-decoration: underline;
-  outline: none;
 }
 
 .price {

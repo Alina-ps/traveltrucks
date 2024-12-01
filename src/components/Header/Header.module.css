@@ -18,14 +18,14 @@
 }
 
 .logo {
-  color: var(--main);
-  font-weight: 600;
-  font-size: 16px;
   padding-left: 64px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logoSpan {
-  color: var(--text);
+.logo:hover,
+.logo:focus,
+.logo:active {
+  transform: scale(0.98);
 }
 
 .nav {
@@ -44,8 +44,19 @@
   width: 46px;
   height: 24px;
   line-height: 24px;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .active {
   color: var(--button-hover);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link:hover,
+.link:focus,
+.link:active,
+.active:hover,
+.active:focus,
+.active:active {
+  transform: scale(0.98);
 }

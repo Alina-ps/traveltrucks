@@ -1,6 +1,7 @@
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import s from './Header.module.css';
 import clsx from 'clsx';
+import sprite from '../../assets/icons.svg';
 
 const Header = () => {
   const location = useLocation();
@@ -16,8 +17,10 @@ const Header = () => {
 
   return (
     <div className={backgroundColor}>
-      <Link to="/" className={s.logo}>
-        Travel<span className={s.logoSpan}>Trucks</span>
+      <Link to="/">
+        <svg width={136} height={15} className={s.logo}>
+          <use href={`${sprite}#icon-TravelTrucks`}></use>
+        </svg>
       </Link>
       <div className={s.nav}>
         <NavLink className={buildLinkClass} to="/">

@@ -15,6 +15,7 @@ const BookNowForm = () => {
 
   const parsedDate = selectedDate ? new Date(selectedDate) : null;
 
+  const formRef = useRef(null);
   const datePickerRef = useRef(null);
 
   const handleDateChange = (date) => {
@@ -27,11 +28,17 @@ const BookNowForm = () => {
     }
   };
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    formRef.current.reset();
+    dispatch(setSelectedDate(null));
+  };
+
   return isLoading ? (
     <Loader />
   ) : (
     <div className={s.container}>
-      <form className={s.form}>
+      <form className={s.form} ref={formRef} onSubmit={handleFormSubmit}>
         <div className={s.textWrapper}>
           <h3 className={s.formTitle}>Book your campervan now</h3>
           <p className={s.formText}>

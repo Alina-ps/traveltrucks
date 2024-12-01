@@ -42,15 +42,14 @@
   align-items: center;
   gap: 4px;
   color: var(--main);
+  transition: text-decoration 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .rating:focus,
 .rating:hover,
 .rating:active {
-  color: var(--main);
   text-decoration: underline;
-  outline: none;
 }
 
 .location {
