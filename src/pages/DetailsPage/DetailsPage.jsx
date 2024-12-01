@@ -25,6 +25,7 @@ const DetailsPage = () => {
       <Suspense fallback={<Loader />}>
         <div className={s.wrap}>
           <Outlet />
+
           <BookNowForm />
         </div>
       </Suspense>

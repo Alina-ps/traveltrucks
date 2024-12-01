@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { selectIsLoading } from '../../redux/campers/selectors.js';
 import Loader from '../Loader/Loader.jsx';
+import toast, { Toaster } from 'react-hot-toast';
 
 const BookNowForm = () => {
   const dispatch = useDispatch();
@@ -32,12 +33,14 @@ const BookNowForm = () => {
     e.preventDefault();
     formRef.current.reset();
     dispatch(setSelectedDate(null));
+    toast.success('Booked successfully!');
   };
 
   return isLoading ? (
     <Loader />
   ) : (
     <div className={s.container}>
+      <Toaster position="top-right" />
       <form className={s.form} ref={formRef} onSubmit={handleFormSubmit}>
         <div className={s.textWrapper}>
           <h3 className={s.formTitle}>Book your campervan now</h3>
