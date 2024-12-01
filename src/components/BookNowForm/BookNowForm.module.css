@@ -67,6 +67,51 @@
   font-family: 'Inter';
 }
 
+.datePickerWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.react-datepicker {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  display: none;
+}
+
+.react-datepicker--open {
+  display: block;
+}
+
+.visuallyHidden {
+  display: none;
+}
+
+.date {
+  position: relative;
+  border: none;
+  background-color: var(--inputs);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  width: 100%;
+}
+
+.date:focus,
+.date:hover {
+  outline: none;
+}
+
+.date::placeholder {
+  color: var(--gray);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: 'Inter';
+}
+
 .textarea {
   padding: 18px 18px 76px;
   border: none;
