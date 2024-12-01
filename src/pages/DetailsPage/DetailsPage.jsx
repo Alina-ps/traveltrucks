@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import s from './DetailsPage.module.css';
 import { Suspense } from 'react';
 import CamperDetails from '../../components/CamperDetails/CamperDetails.jsx';
+import Loader from '../../components/Loader/Loader.jsx';
 
 const DetailsPage = () => {
   const buildLinkClass = ({ isActive }) => {
@@ -21,12 +22,12 @@ const DetailsPage = () => {
           Reviews
         </NavLink>
       </div>
-      <div className={s.wrap}>
-        <Suspense fallback={<h2>Second suspense loader</h2>}>
+      <Suspense fallback={<Loader />}>
+        <div className={s.wrap}>
           <Outlet />
-        </Suspense>
-        <BookNowForm />
-      </div>
+          <BookNowForm />
+        </div>
+      </Suspense>
     </div>
   );
 };

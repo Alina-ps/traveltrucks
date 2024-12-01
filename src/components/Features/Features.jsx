@@ -1,15 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCamperById } from '../../redux/campers/selectors.js';
+import {
+  selectCamperById,
+  selectIsLoading,
+} from '../../redux/campers/selectors.js';
 import { useEffect } from 'react';
 import { fetchCamperById } from '../../redux/campers/operations.js';
 import s from './Features.module.css';
 import sprite from '../../assets/icons.svg';
 import { useParams } from 'react-router-dom';
+import Loader from '../Loader/Loader.jsx';
 
 const Features = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const camper = useSelector(selectCamperById);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     if (id) {
@@ -86,7 +91,9 @@ const Features = () => {
 
   if (!camper.tank) return '';
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div className={s.container}>
       <ul className={s.list}>
         <li className={s.item}>

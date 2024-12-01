@@ -5,10 +5,13 @@ import { useRef } from 'react';
 import { setSelectedDate } from '../../redux/date/slice.js';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { selectIsLoading } from '../../redux/campers/selectors.js';
+import Loader from '../Loader/Loader.jsx';
 
 const BookNowForm = () => {
   const dispatch = useDispatch();
   const selectedDate = useSelector(selectDate);
+  const isLoading = useSelector(selectIsLoading);
 
   const parsedDate = selectedDate ? new Date(selectedDate) : null;
 
@@ -24,7 +27,9 @@ const BookNowForm = () => {
     }
   };
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div className={s.container}>
       <form className={s.form}>
         <div className={s.textWrapper}>

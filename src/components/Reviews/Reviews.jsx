@@ -1,15 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCamperById } from '../../redux/campers/selectors';
+import {
+  selectCamperById,
+  selectIsLoading,
+} from '../../redux/campers/selectors';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchCamperById } from '../../redux/campers/operations';
 import s from './Reviews.module.css';
 import sprite from '../../assets/icons.svg';
+import Loader from '../Loader/Loader';
 
 const Reviews = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const camper = useSelector(selectCamperById);
+  const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
     if (id) {
@@ -45,7 +50,9 @@ const Reviews = () => {
     return stars;
   };
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div className={s.container}>
       <ul className={s.list}>
         {camper.reviews.map((review, index) => (

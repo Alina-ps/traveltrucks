@@ -22,9 +22,14 @@ import {
   selectVehicleType,
 } from '../../redux/filter/selectors.js';
 import { resetLocation } from '../../redux/dropdown/slice.js';
+import { selectIsLoading } from '../../redux/campers/selectors.js';
+import Loader from '../Loader/Loader.jsx';
 
 const Filter = () => {
   const dispatch = useDispatch();
+
+  const isLoading = useSelector(selectIsLoading);
+
   const selectedLocation = useSelector(selectOneValue);
   const selectedTransmission = useSelector(selectTransmission);
   const selectedAC = useSelector(selectAC);
@@ -87,7 +92,9 @@ const Filter = () => {
     dispatch(resetLocation());
   };
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div className={s.container}>
       <div className={s.locationWrap}>
         <p className={s.locationText}>Location</p>

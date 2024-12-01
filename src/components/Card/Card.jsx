@@ -1,7 +1,12 @@
 import s from './Card.module.css';
 import sprite from '../../assets/icons.svg';
+import { useSelector } from 'react-redux';
+import { selectIsLoading } from '../../redux/campers/selectors';
+import Loader from '../Loader/Loader.jsx';
 
 const Card = ({ camper }) => {
+  const isLoading = useSelector(selectIsLoading);
+
   let transmissionInfo;
   switch (camper.transmission) {
     case 'automatic':
@@ -60,7 +65,9 @@ const Card = ({ camper }) => {
     return `${city}, ${country}`;
   };
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div className={s.container}>
       <img
         className={s.img}
