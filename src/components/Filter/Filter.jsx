@@ -193,12 +193,14 @@ const Filter = () => {
         </ul>
       </div>
 
-      <button className={s.btn} onClick={handleSearch}>
-        Search
-      </button>
-      <button className={s.btn} onClick={handleClearFilters}>
-        Clear Filters
-      </button>
+      <div className={s.btnContainer}>
+        <button className={s.btn} onClick={handleSearch}>
+          Search
+        </button>
+        <button className={s.btnReset} onClick={handleClearFilters}>
+          Clear Filters
+        </button>
+      </div>
     </div>
   );
 };
