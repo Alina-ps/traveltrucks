@@ -1,5 +1,10 @@
 .container {
   padding: 120px 64px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1312px;
+  margin: 0 auto;
 }
 
 .title {
@@ -35,6 +40,7 @@
 
 .list {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 48px;
   margin-bottom: 28px;

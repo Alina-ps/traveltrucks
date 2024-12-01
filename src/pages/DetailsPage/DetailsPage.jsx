@@ -11,7 +11,7 @@ const DetailsPage = () => {
   };
 
   return (
-    <div>
+    <div className={s.container}>
       <CamperDetails />
       <div className={s.containerLinks}>
         <NavLink className={buildLinkClass} to="features">

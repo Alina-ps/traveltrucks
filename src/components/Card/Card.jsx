@@ -84,7 +84,7 @@ const Card = ({ camper }) => {
           <Link to={`/catalog/${camper.id}/reviews`}>
             <p className={s.rating}>
               <svg width={16} height={16}>
-                <use href={`${sprite}#icon-rating`}></use>
+                <use href={`${sprite}#icon-rating-yellow`}></use>
               </svg>
               {camper.rating}
               <span>({camper.reviews.length} Reviews)</span>

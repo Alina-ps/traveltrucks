@@ -4,13 +4,15 @@
   background-color: var(--inputs);
   padding: 44px 52px;
   border-radius: 10px;
+  width: 631px;
+  height: 588px;
 }
 
 .list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 
 .item {

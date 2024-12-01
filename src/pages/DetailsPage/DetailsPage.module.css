@@ -1,8 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .containerLinks {
   padding-left: 64px;
   padding-right: 64px;
   padding-bottom: 24px;
   display: flex;
+  justify-content: flex-start;
+  margin: 0 auto;
   gap: 40px;
 }
 
@@ -24,6 +32,9 @@
 
 .wrap {
   padding: 44px 64px 52px;
+  width: 1312px;
   display: flex;
+  justify-content: center;
+  margin: 0 auto;
   gap: 40px;
 }

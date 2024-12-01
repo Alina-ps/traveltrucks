@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchCamperById } from '../../redux/campers/operations';
 import s from './Reviews.module.css';
+import sprite from '../../assets/icons.svg';
 
 const Reviews = () => {
   const { id } = useParams();
@@ -26,6 +27,24 @@ const Reviews = () => {
     return newValue;
   };
 
+  const renderStars = (rating) => {
+    const stars = [];
+    const total = 5;
+
+    for (let i = 1; i <= total; i++) {
+      stars.push(
+        <span key={i}>
+          <svg width={16} height={16}>
+            <use
+              href={`${sprite}#icon-rating-${i <= rating ? 'yellow' : 'gray'}`}
+            ></use>
+          </svg>
+        </span>
+      );
+    }
+    return stars;
+  };
+
   return (
     <div className={s.container}>
       <ul className={s.list}>
@@ -37,7 +56,9 @@ const Reviews = () => {
               </span>
               <div>
                 <p className={s.itemName}>{review.reviewer_name}</p>
-                <p className={s.itemRating}>{review.reviewer_rating}</p>
+                <p className={s.itemRating}>
+                  {renderStars(review.reviewer_rating)}
+                </p>
               </div>
             </div>
 
